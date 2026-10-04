@@ -17,6 +17,29 @@
   box-sizing: border-box;
 }
 
+/* Transición de entrada al cambiar de página (React Router) */
+
+.page-transition {
+  animation: pagina-fade-in 0.28s ease;
+}
+
+@keyframes pagina-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-transition {
+    animation: none;
+  }
+}
+
 body {
   font-family: var(--fuente-principal);
   background: linear-gradient(180deg, #edf5fb 0%, #f7f7fa 100%);

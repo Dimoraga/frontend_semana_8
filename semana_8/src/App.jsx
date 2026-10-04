@@ -18,12 +18,16 @@ function App() {
   return (
     <>
       <Header />
-      <Routes>
-        <Route path="/" element={<Inicio />} />
-        <Route path="/nosotros" element={<Nosotros />} />
-        <Route path="/productos" element={<Productos />} />
-        <Route path="/contacto" element={<Contacto />} />
-      </Routes>
+      {/* La key reinicia la animación de entrada cada vez que cambia de página
+          (no se activa con cambios de query/hash dentro de la misma ruta). */}
+      <div className="page-transition" key={location.pathname}>
+        <Routes>
+          <Route path="/" element={<Inicio />} />
+          <Route path="/nosotros" element={<Nosotros />} />
+          <Route path="/productos" element={<Productos />} />
+          <Route path="/contacto" element={<Contacto />} />
+        </Routes>
+      </div>
       <Footer />
     </>
   )
